@@ -90,7 +90,7 @@ for (my$index=0;$index<=$#addrs;$index++){
   if ($bcc_string ne '') {
   $smtp->bcc($bccrec);
   }
-    $smtp->data();
+  $smtp->data();
   $smtp->datasend($input);
   $smtp->dataend();
   $smtp->quit;
