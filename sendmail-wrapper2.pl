@@ -80,7 +80,7 @@ for (my$index=0;$index<=$#addrs;$index++){
   my $bccrec = '';
   $bccrec = $bcca[0]->address unless (0+@bcca eq 0);
 
-  my $smtp = Net::SMTP->new('127.0.0.1', Port => 25, Timeout => 10, Debug => 0);
+  my $smtp = Net::SMTP->new('127.0.0.100', Port => 10025, Timeout => 10, Debug => 0);
   die "Could not connect to smtpd\n" unless $smtp;
   $smtp->mail($frec);
   $smtp->to($rec);
