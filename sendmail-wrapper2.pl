@@ -84,10 +84,10 @@ for (my$index=0;$index<=$#addrs;$index++){
   die "Could not connect to smtpd\n" unless $smtp;
   $smtp->mail($frec);
   $smtp->to($rec);
-  if ($cc_string ne '') {
+  if ($ccrec ne '') {
   $smtp->cc($ccrec);
   }
-  if ($bcc_string ne '') {
+  if ($bccrec ne '') {
   $smtp->bcc($bccrec);
   }
   $smtp->data();
