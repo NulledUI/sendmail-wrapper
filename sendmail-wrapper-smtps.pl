@@ -2,15 +2,11 @@
 
 use strict;
 use warnings;
-##use Net::SMTP;
 use Net::SMTPS;
 use Email::Address;
 use Email::MessageID;
 use Email::Date::Format qw(email_date);
-##use Net::Domain qw(hostname hostfqdn hostdomain domainname);
 
-##my $user = getpwuid( $< );
-##my $server = hostdomain () || hostfqdn ()  || domainname () || 'localhost';
 my $username = 'a@b.ru';
 my $smtp_password = 'q1234567q';
 my $server = 'mail.server.ru';
@@ -48,7 +44,7 @@ foreach my $line ( <STDIN> ) {
     $bcc_string = $line;
   }
   
-    if ($line =~ /^Date:/i) {
+  if ($line =~ /^Date:/i) {
     $Date = $line;
   }
 }
@@ -82,9 +78,6 @@ for (my$index=0;$index<=$#addrs;$index++) {
   my @bcca = Email::Address->parse($bcc_string);
   my $bccrec = '';
   $bccrec = $bcca[0]->address unless (0+@bcca eq 0);
-
-#  my $smtp = Net::SMTP->new(Host => $server, Port => 25, Timeout => 5, Debug => 1);
-#  die "Could not connect to server!\n" unless $smtp;
 
   my $smtps = Net::SMTPS->new(Host => $server, Port => 587,  doSSL => 'starttls', SSL_version=>'TLSv1');
 
