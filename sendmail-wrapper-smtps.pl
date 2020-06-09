@@ -6,6 +6,7 @@ use Net::SMTPS;
 use Email::Address;
 use Email::MessageID;
 use Email::Date::Format qw(email_date);
+use Config::IniFiles;
 
 my $ini_file  = "/home/user/sendmail-wrapper.ini";
 my $conf = Config::IniFiles->new( -file => $ini_file );
