@@ -7,9 +7,12 @@ use Email::Address;
 use Email::MessageID;
 use Email::Date::Format qw(email_date);
 
-my $username = 'a@b.ru';
-my $smtp_password = 'q1234567q';
-my $server = 'mail.server.ru';
+my $ini_file  = "/home/user/sendmail-wrapper.ini";
+my $conf = Config::IniFiles->new( -file => $ini_file );
+my $server           = $conf->val('wrapper_setup', 'server');
+my $username         = $conf->val('wrapper_setup', 'username');
+my $smtp_password    = $conf->val('wrapper_setup', 'smtp_password');
+
 my $input = '';
 my $to_string = '';
 my $from_string = '';
