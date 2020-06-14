@@ -7,10 +7,10 @@ $bcc = "bccbox@mydomain.com";
 
 $header = "From: " . $from . "\r\n".
 $header = "Reply-To: " . $from . "\r\n".
-	        "Content-Type: text/plain; charset=utf-8;\r\n".
+	  "Content-Type: text/plain; charset=utf-8;\r\n".
           # we don't need MID here cause wrapper generate it 
           #"Message-ID: <" . time() . "." . $from . ">\r\n".
-	        "Cc: " . $cc . "\r\n".
+	  "Cc: " . $cc . "\r\n".
           "Bcc: " . $bcc;
 
 # use it with mail() function  
